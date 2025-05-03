@@ -1,4 +1,5 @@
 #include "Framework.h"
+#include "Gamemode.h"
 
 DWORD Main(LPVOID)
 {
@@ -28,6 +29,18 @@ DWORD Main(LPVOID)
 
     ((UKismetSystemLibrary*)UKismetSystemLibrary::StaticClass()->DefaultObject)->ExecuteConsoleCommand(Helpers::GetWorld(), L"open Athena_Terrain", nullptr);
     UObject::FindObject<UFortEngine>("FortEngine_")->GameInstance->LocalPlayers.Remove(0);
+
+    MH_CreateHook((LPVOID)Helpers::GetOffset(0x29CE460), Network::TickFlushHook, (void**)&Network::TickFlush);
+    MH_EnableHook((LPVOID)Helpers::GetOffset(0x29CE460));
+
+    MH_CreateHook((LPVOID)Helpers::GetOffset(0x124A9B0), Network::KickPlayer, nullptr);
+    MH_EnableHook((LPVOID)Helpers::GetOffset(0x124A9B0));
+
+    MH_CreateHook((LPVOID)Helpers::GetOffset(0x1251DA0), Network::ValidationFailure, nullptr);
+    MH_EnableHook((LPVOID)Helpers::GetOffset(0x1251DA0));
+
+    MH_CreateHook((LPVOID)Helpers::GetOffset(0x125B070), Network::NoReservation, nullptr);
+    MH_EnableHook((LPVOID)Helpers::GetOffset(0x125B070));
 
     return 1;
 }

@@ -35,5 +35,8 @@
     <ClInclude Include="Globals.h">
       <Filter>Server</Filter>
     </ClInclude>
+    <ClInclude Include="Gamemode.h">
+      <Filter>Private</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

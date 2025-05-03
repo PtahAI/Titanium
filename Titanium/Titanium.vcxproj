@@ -142,6 +142,7 @@
   <ItemGroup>
     <ClInclude Include="Framework.h" />
     <ClInclude Include="Globals.h" />
+    <ClInclude Include="Gamemode.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />

@@ -4,7 +4,11 @@
 
 namespace Globals
 {
-	std::string GameserverVersion = "0.1.2";
+	std::string GameserverVersion = "0.2.1";
+
+	bool IsPlaylistInitialized = false;
+	bool IsServerListening = false;
+	bool IsServerInitialized = false;
 
 	std::string Playlist = "";
 }
