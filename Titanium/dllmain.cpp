@@ -1,5 +1,6 @@
 #include "Framework.h"
 #include "Gamemode.h"
+#include "Player.h"
 
 DWORD Main(LPVOID)
 {
@@ -41,6 +42,10 @@ DWORD Main(LPVOID)
 
     MH_CreateHook((LPVOID)Helpers::GetOffset(0x125B070), Network::NoReservation, nullptr);
     MH_EnableHook((LPVOID)Helpers::GetOffset(0x125B070));
+
+    Player::InitHooks();
+
+    Gamemode::InitHooks();
 
     return 1;
 }
