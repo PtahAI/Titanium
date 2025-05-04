@@ -88,7 +88,7 @@ namespace Server
 		void** ReplicationDriverVTable = *(void***)Helpers::GetWorld()->NetDriver->ReplicationDriver;
 		ServerReplicateActors = decltype(ServerReplicateActors)(ReplicationDriverVTable[0x56]);
 
-		LOG("Listening On Port " << URL.Port);
+		LOG("Listening On Port 7777\n");
 
 		Globals::IsServerInitialized = true;
 
@@ -96,11 +96,11 @@ namespace Server
 		{
 			Sleep(1000);
 
-			LOG("Titanium Initialized!\n");
+			LOG("Titanium Initialized!");
 
 			Sleep(1000);
 
-			LOG("Players Can Now Join!");
+			LOG("Players Can Now Join!\n");
 		}
 	}
 }
@@ -133,5 +133,15 @@ namespace Network
 	__int64 __fastcall NoReservation(__int64 a1, __int64 a2, char a3, __int64 a4)
 	{
 		return 0;
+	}
+
+	BYTE* __fastcall ChangeGameSessionID()
+	{
+		return nullptr;
+	}
+
+	void CollectGarbage()
+	{
+		return;
 	}
 }

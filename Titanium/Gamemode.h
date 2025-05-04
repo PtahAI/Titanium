@@ -30,16 +30,12 @@ namespace Gamemode
 		if (!Globals::IsServerListening)
 		{
 			Globals::IsServerListening = true;
-			Helpers::GetGameState()->PlayersLeft--;
-			Helpers::GetGameState()->OnRep_PlayersLeft();
 			Helpers::GetGameState()->OnRep_CurrentPlaylistInfo();
 			Server::Listen();
 			Game->bWorldIsReady = true;
 		}
 
-		bool Ret = false;
-		Ret = ReadyToStartMatch(Game);
-		return Ret;
+		return ReadyToStartMatch(Game);
 	}
 
 	APawn* SpawnDefaultPawnForHook(AGameModeBase* Game, AController* NewPlayer, AActor* StartSpot)
@@ -51,6 +47,6 @@ namespace Gamemode
 
 	void InitHooks()
 	{
-
+		
 	}
 }

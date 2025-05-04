@@ -43,6 +43,12 @@ DWORD Main(LPVOID)
     MH_CreateHook((LPVOID)Helpers::GetOffset(0x125B070), Network::NoReservation, nullptr);
     MH_EnableHook((LPVOID)Helpers::GetOffset(0x125B070));
 
+    MH_CreateHook((LPVOID)Helpers::GetOffset(0x1014CC0), Network::ChangeGameSessionID, nullptr);
+    MH_EnableHook((LPVOID)Helpers::GetOffset(0x1014CC0));
+
+    MH_CreateHook((LPVOID)Helpers::GetOffset(0x6411FB9), Network::CollectGarbage, nullptr);
+    MH_EnableHook((LPVOID)Helpers::GetOffset(0x6411FB9));
+
     Player::InitHooks();
 
     Gamemode::InitHooks();
